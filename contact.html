@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./src/index.css" />
+    <link rel="stylesheet" href="./src/input.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+ 
+    <meta
+      name="title"
+      content="Finexo Treuhand Dienstleistungen - Buchhaltung. Firmengründung. Beratung."
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Finexo Treuhand Dienstleistungen - Buchhaltung. Firmengründung. Beratung.
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="/src/output.css" rel="stylesheet" />
+    <style>
+    
+    </style>
+  </head>
+  <body>
+    <header
+    class="w-full bg-white px-4 sm:px-6 border-b border-gray-200 md:px-10 py-4 top-0 z-50 sticky"
+  >
+    <div
+      class="w-full mx-auto max-w-[1300px] text-base flex items-center justify-between"
+    >
+      <a href="/index.html">
+        <span>
+          <img
+            src="./src/assets/logo-finexo.svg"
+            alt="Finexo"
+            class="w-[150px] h-[30px] sm:h-[50px]"
+          />
+        </span>
+      </a>
+
+      <button onclick="toggleMenu(this)" class="block md:hidden">
+          <span class="block md:hidden" id="hamburger"> 
+              <svg
+          
+              
+              xmlns="http://www.w3.org/2000/svg"
+              width="2em"
+              height="2em"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M4 17.27v-1h16v1zm0-4.77v-1h16v1zm0-4.77v-1h16v1z"
+              />
+            </svg>
+          </span>
+        <span class="hidden" id="close-menu">
+          <svg
+          
+          
+          xmlns="http://www.w3.org/2000/svg"
+          width="2em"
+          height="2em"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            d="m6.4 18.308l-.708-.708l5.6-5.6l-5.6-5.6l.708-.708l5.6 5.6l5.6-5.6l.708.708l-5.6 5.6l5.6 5.6l-.708.708l-5.6-5.6z"
+          />
+        </svg>
+        </span>
+       
+      </button>
+      <div class="hidden md:flex h-full font-medium items-center gap-x-8">
+        <a
+        href="about.html"
+          class="nav-a h-full p-3 active:text-[#28a745] hover:text-[#28a745]"
+          ,
+        >
+          Über Finexo
+        </a>
+        <div
+       
+        class="nav-hover  relative  h-full p-3">
+          <button
+          
+            class="flex items-center gap-x-2 hover:text-[#28a745]"
+          >
+            Privatkunden
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1em"
+              height="1em"
+              viewBox="0 0 1024 1024"
+            >
+              <path
+                fill="#9ca3af"
+                d="M831.872 340.864L512 652.672L192.128 340.864a30.59 30.59 0 0 0-42.752 0a29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728a30.59 30.59 0 0 0-42.752 0z"
+              />
+            </svg>
+          </button>
+          <div
+          id="private"
+            class="bg-white  p-3  hidden rounded-lg shadow absolute top-8"
+          >
+            <div
+            
+              class="  w-fit min-w-[150px] flex-col items-start justify-start"
+            ></div>
+          </div>
+          <!-- <DropDown navas={Privatkundena} /> -->
+        </div>
+        <div class="nav-hover relative h-full p-3">
+          <button
+            class="flex items-center gap-x-2 hover:text-[#28a745]"
+          >
+            Geschäftskunden
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1em"
+              height="1em"
+              viewBox="0 0 1024 1024"
+            >
+              <path
+                fill="#9ca3af"
+                d="M831.872 340.864L512 652.672L192.128 340.864a30.59 30.59 0 0 0-42.752 0a29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728a30.59 30.59 0 0 0-42.752 0z"
+              />
+            </svg>
+          </button>
+          <div
+            class="bg-white  p-3 hidden  rounded-lg shadow absolute top-8"
+          >
+            <div
+            id="public"
+              class=" w-fit min-w-[150px] flex flex-col items-start justify-start"
+            ></div>
+          </div>
+          <!-- <DropDown navas={Geschäftskundena} /> -->
+        </div>
+
+        <a
+          href="/contact.html"
+          class="nav-a h-full p-3 active:text-[#28a745] hover:text-[#28a745]"
+          ,
+        >
+          Kontakt
+        </a>
+      </div>
+    </div>
+    <div 
+    id="mobile-nav"
+    class="hidden absolute top-[3.5rem] inset-0">
+      <div
+      id="fixed-style"
+      class="w-full h-full inset-0 fixed bg-none z-[99]"
+    ></div>
+    <div
+    onclick="(e) => {
+      e.stopPropagation();
+    }"
+    class="w-full relative py-4 shadow bg-white z-[100]"
+  >
+    <div class="w-full flex flex-col items-start justify-start gap-y-1">
+      <a
+        href="about.html"
+        class=
+          "hover:text-[#28a745] w-full text-start px-3 py-3",
+         
+      >
+       Finexo Über uns
+      </a>
+      <div class=" relative w-full ">
+    <button
+  
+    class="mobile-drop  flex   px-3 py-2 w-full items-center justify-between ">
+      Privatkunden
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="none" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" d="m7 10l5 5l5-5"/></svg>
+    </button>
+  <!-- {isFirst &&  <MobileDropDown navas={Privatkundena} />} -->
+   <div id="private-mobile" class="w-full hidden"></div>
+  </div>
+  <div class=" relative w-full">
+    <button 
+    
+    class="mobile-drop flex  w-full px-3 py-2 items-center justify-between group-hover:text-[#28a745] ">
+      Geschäftskunden
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="none" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" d="m7 10l5 5l5-5"/></svg>
+    </button>
+    <div id="public-mobile" class="w-full hidden"></div>
+   <!-- {isSecond && <MobileDropDown navas={Geschäftskundena} />} -->
+  </div>
+
+      <a
+        href="contact.html"
+        class=
+          "hover:text-[#28a745] w-full text-start px-3 py-2"
+        
+      >
+        Kontakt
+      </a>
+    </div>
+  </div>
+    </div>
+  </header>
+    <!-- -- HERO -- -->
+    <div class="w-full h-[5rem] sm:h-[10rem]  mb-8 sm:mb-10 md:mb-14 bg-[#353578] text-white flex items-center justify-center">
+        <h2 class="  text-center  text-2xl sm:text-4xl md:text-5xl font-bold">
+          Anfrage
+        </h2>
+      </div>
+      <div class="w-full px-6 sm:px-8 md:px-10 lg:px-20 ">
+        <p class="text-center text-[#28a745] mb-2 font-semibold">
+          
+          Lorem Ipsum
+        </p>
+        <h2 class="font-semibold text-xl mb-6 sm:mb-12 sm:text-2xl md:text-3xl text-center">
+          Wir werden Sie schnellstmöglich kontaktieren.
+        </h2>
+
+        <div class="w-full max-w-7xl grid grid-cols-1 mb-8 sm:mb-10 md:grid-cols-2 gap-6 mx-auto">
+          <div class=" p-4 text-sm sm:text-base sm:p-8">
+            <h2 class="font-semibold text-base sm:text-2xl mb-4">
+              Contact Form
+            </h2>
+            <form
+              action="/_wlscripts/formmail.asp"
+              method="POST"
+              name="formular"
+              class="w-full grid grid-cols-1 md:grid-cols-2 gap-4"
+            >
+              <input hidden name="subject" value="Kontaktformular" />
+              <input hidden name="recipient" value="info@finexo.ch" />
+              <label
+                for="buchhaltung"
+                class="flex items-center gap-x-2"
+              >
+                <input
+                  name="buchhaltung"
+                  type="checkbox"
+                  class="accent-[#28a745] h-4 w-4"
+                />
+                <span>Treuhand & Administration</span>
+              </label>
+              <label
+                for="steuererklaerung"
+                class="flex items-center gap-x-2"
+              >
+                <input
+                  name="steuererklaerung"
+                  type="checkbox"
+                  class="accent-[#28a745] h-4 w-4"
+                />
+                <span>Steuern</span>
+              </label>
+              <label for="beratung" class="flex items-center gap-x-2">
+                <input
+                  type="checkbox"
+                  name="beratung"
+                  class="accent-[#28a745] h-4 w-4"
+                />
+                <span>Unternehmensberatung</span>
+              </label>
+              <label
+                for="firmengruendung"
+                class="flex items-center gap-x-2"
+              >
+                <input
+                  type="checkbox"
+                  name="firmengruendung"
+                  class="accent-[#28a745] h-4 w-4"
+                />
+                <span>Firmengründung</span>
+              </label>
+              <div class="w-full col-span-full space-y-3">
+                <label for="name" class="block font-medium">
+                  Ihr Vor- und Nachname
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Ihr Vor- und Nachname"
+                  class="w-full h-11 px-4 rounded-none border-b outline-none border-gray-300"
+                />
+              </div>
+              <div class="w-full col-span-full space-y-3">
+                <label for="phone" class="block font-medium">
+                  Telefon
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Ihre Telefonnmmer"
+                  class="w-full h-11 px-4 rounded-none border-b outline-none border-gray-300"
+                />
+              </div>
+              <div class="w-full  col-span-full space-y-3">
+                <label for="email" class="block font-medium">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Addresse"
+                  class="w-full h-11 px-4 rounded-none border-b outline-none border-gray-300"
+                />
+              </div>
+              <div class="w-full col-span-full space-y-3">
+                <label for="adresse" class="block font-medium">
+                  Strasse und Hausnummer
+                </label>
+                <input
+                  type="text"
+                  name="adresse"
+                  placeholder="Adresse"
+                  class="w-full h-11 rounded-none border-b px-4 outline-none border-gray-300"
+                />
+              </div>
+              <div class="w-full col-span-full space-y-3">
+                <label for="ort" class="block font-medium">
+                  Ort und PLZ
+                </label>
+                <input
+                  type="text"
+                  name="ort"
+                  placeholder="Ort_plz"
+                  class="w-full h-11 px-4 rounded-none border-b outline-none border-gray-300"
+                />
+              </div>
+
+              <div class="w-full col-span-full space-y-3">
+                <label for="message" class="block font-medium">
+                  Mitteilungen
+                </label>
+                <textarea
+                  name="message"
+                  class="w-full h-[14rem] rounded-md p-4 outline-none border border-gray-300 resize-none "
+                  placeholder="Mittelung"
+                ></textarea>
+              </div>
+
+              <div class="w-full flex col-span-full items-end justify-end">
+                <img
+                  alt="code"
+                  src="/_wlscripts/SicherheitsImage.asp?
+                                  CodeLength=6&CodeType=2&ImageWidth=165&imageHeight=30&TextStyle=25"
+                />
+              </div>
+              <div class="w-full col-span-full">
+                <input
+                  type="text"
+                  name="SicherheitsCode"
+                  placeholder="code"
+                  class="w-full h-11 px-4 rounded-none border-b outline-none border-gray-300"
+                />
+              </div>
+
+              <button class="w-fit px-6 col-span-full flex items-center justify-center h-11 rounded-3xl bg-[#28a745] text-white">
+                Jetzt Senden
+              </button>
+            </form>
+          </div>
+          <div class="w-full space-y-6">
+            <img src='./src/assets/buchhaltung-finexo-celebrate.png' alt="" />
+            <div class="w-full max-w-lg mx-auto flex items-center justify-between mb-4">
+              <p>Address:</p>
+              <p>Finexo; Bollwerk 19; 3011 Bern</p>
+            </div>
+            <div class="w-full max-w-lg mx-auto flex items-center justify-between mb-4">
+              <p>Phone:</p>
+              <a href="tel:0313126710">031 312 67 10</a>
+            </div>
+            <div class="w-full max-w-lg mx-auto flex items-center justify-between mb-4">
+              <p>E-mail:</p>
+              <a href="mailto:info@finexo.ch">info@finexo.ch</a>
+            </div>
+            <div class="w-full max-w-lg mx-auto flex items-center justify-between mb-4">
+              <p> Unsere Bürozeiten sind:</p>
+              <p>Montag - Freitag 11:00-18:00 Uhr</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <iframe
+        title="finexo-location"
+        src="https://www.google.com/maps/embed?pb=!4v1559216076631!6m8!1m7!1sCPM1_VD4HIb4EDKfkjmqwA!2m2!1d46.94970671153243!2d7.440506678542249!3f153.99!4f14.5!5f0.5919299704256884"
+        class="mx-auto max-w-7xl w-full mb-10 sm:mb-12  h-[30rem]"
+      ></iframe>
+
+
+
+    <!-- ------ FOOTER  ------>
+    <footer class="w-full">
+        <div class="w-full  bg-[#edeff4]">
+          <div class="w-full px-6 sm:px-8 lg:px-16 xl:px-20 py-6   grid grid-cols-1 justify-start items-start gap-6 sm:grid-cols-4">
+            <div class="col-span-2 sm:col-span-1 w-full flex flex-col items-start justify-start gap-y-4">
+              <a href="index.html">
+              <span>  <img src="./src/assets/logo-finexo.svg" alt="logo" class="max-w-[160px] h-10 " /></span>
+              </a>
+    
+              <p class="text-start text-sm text-gray-500 w-full sm:w-[80%]">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text
+                ever since the 1500s.
+              </p>
+            </div>
+            <div class="w-full flex flex-col font-medium items-start justify-start gap-y-3">
+              <p class="text-base sm:text-lg font-semibold mb-2">Kontakt</p>
+    
+              <div class="w-full flex items-start text-gray-500 gap-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" transform="translate(4 2)"><path d="m6.5 16.54l.631-.711Q8.205 14.6 9.064 13.49l.473-.624Q12.5 8.875 12.5 6.533C12.5 3.201 9.814.5 6.5.5s-6 2.701-6 6.033q0 2.342 2.963 6.334l.473.624a55 55 0 0 0 2.564 3.05"/><circle cx="6.5" cy="6.5" r="2.5"/></g></svg>
+                <p> Finexo GmbH Bollwerk 19 3011 Bern</p>
+              </div>
+              <div class="w-full flex items-start text-gray-500 gap-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 512 512"><rect width="416" height="320" x="48" y="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" rx="40" ry="40"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m112 160l144 112l144-112"/></svg>
+                <a href="mailto:info@finexo.ch" class="text-sm sm:text-base">
+                  info@finexo.ch
+                </a>
+              </div>
+              <div class="w-full flex items-start text-gray-500 gap-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="currentColor" d="M220.78 162.13L173.56 141a12 12 0 0 0-11.38 1a3.4 3.4 0 0 0-.38.28L137 163.42a3.93 3.93 0 0 1-3.7.21c-16.24-7.84-33.05-24.52-40.89-40.57a3.9 3.9 0 0 1 .18-3.69l21.2-25.21c.1-.12.19-.25.28-.38a12 12 0 0 0 1-11.36L93.9 35.28a12 12 0 0 0-12.48-7.19A52.25 52.25 0 0 0 36 80c0 77.2 62.8 140 140 140a52.25 52.25 0 0 0 51.91-45.42a12 12 0 0 0-7.13-12.45m-.78 11.45A44.23 44.23 0 0 1 176 212c-72.78 0-132-59.22-132-132a44.23 44.23 0 0 1 38.42-44a4 4 0 0 1 .48 0a4 4 0 0 1 3.67 2.49l21.11 47.14a4 4 0 0 1-.23 3.6l-21.19 25.2c-.1.13-.2.25-.29.39a12 12 0 0 0-.78 11.75c8.69 17.79 26.61 35.58 44.6 44.27a12 12 0 0 0 11.79-.87l.37-.28l24.83-21.12a3.93 3.93 0 0 1 3.57-.27l47.21 21.16a4 4 0 0 1 2.44 4.12"/></svg>
+                <a href="tel:0313126710" class="text-sm sm:text-base">
+                 
+                  031 312 67 10
+                </a>
+              </div>
+            </div>
+      
+            <div class="w-full flex flex-col font-medium items-start justify-start gap-y-3">
+              <p class="text-base sm:text-lg font-semibold mb-2">Rechtliches</p>
+              <a
+                href="imprint.html"
+                class="text-gray-500 block hover:text-[#28a745]"
+              >
+                Impressum
+            </a>
+              <a href="term.html" class="text-gray-500 hover:text-[#28a745]">
+                AGB
+              </a>
+              <a
+                href="privacy.html"
+                class="text-gray-500 hover:text-[#28a745]"
+              >
+                Datenschutzerklärung
+            </a>
+              <a
+                href="disclaimer.html"
+                class="text-gray-500 hover:text-[#28a745]"
+              >
+                Haftungsausschluss
+          </a>
+            </div>
+    
+          
+            <div class="w-full flex font-medium flex-col items-start justify-start gap-y-3">
+              <p class="text-base sm:text-lg font-semibold mb-2">Über uns</p>
+    
+              <p class="text-gray-500">Handelsregister CHE-114.524.439</p>
+    
+              <p class="text-gray-500">FINMA Register Nr. 24793</p>
+              <a  href="about.html" class="text-gray-500 ">
+                Über uns
+              </a>
+            </div>
+          </div>
+          <div class="w-full flex items-center text-gray-500 justify-between px-4 sm:px-8 lg:px-16 xl:px-20 py-3 sm:py-4 border-t border-gray-300">
+            <p>Copyright © 2024 Finexo GmbH</p>
+            <p>All rights reserved.</p>
+          </div>
+        </div>
+  
+       </footer>
+
+       <script src="/main.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
