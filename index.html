@@ -392,8 +392,21 @@
 
      </footer>
 
-    <script src="index.js"></script>
-    <script src="main.js"></script>
+     <script>
+      // Dynamically create script tags based on current location
+      const baseUrl = window.location.origin;
+  
+      const scripts = [
+        "/index.js",  // Adjust these paths relative to where your JS files are located
+        "/main.js"
+      ];
+  
+      scripts.forEach((scriptPath) => {
+        const scriptTag = document.createElement('script');
+        scriptTag.src = baseUrl + scriptPath;
+        document.body.appendChild(scriptTag);
+      });
+    </script>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
