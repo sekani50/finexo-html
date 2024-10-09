@@ -139,7 +139,7 @@
           </div>
 
           <a
-            href="/contact.html"
+            href="contact.html"
             class="nav-a h-full p-3 active:text-[#28a745] hover:text-[#28a745]"
             ,
           >
@@ -316,7 +316,21 @@
   
        </footer>
 
-       <script src="/main.js"></script>
+       <script>
+       
+        const baseUrl = `${window.location.origin}/${window.location.pathname}`;
+    
+        const scripts = [
+        
+          "/main.js"
+        ];
+    
+        scripts.forEach((scriptPath) => {
+          const scriptTag = document.createElement('script');
+          scriptTag.src = baseUrl + scriptPath;
+          document.body.appendChild(scriptTag);
+        });
+      </script>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
